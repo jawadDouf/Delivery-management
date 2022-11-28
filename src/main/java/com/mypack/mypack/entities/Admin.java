@@ -17,7 +17,6 @@ public class Admin {
     private String email;
     private String password;
 
-    //forign key to manager
-    @OneToMany(mappedBy = "admin")
+
 
 }
