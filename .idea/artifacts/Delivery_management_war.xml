@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Delivery-management:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>Delivery-management</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="myPack-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="Delivery-management:war exploded" />
+    </root>
+  </artifact>
+</component>
