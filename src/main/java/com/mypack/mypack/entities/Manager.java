@@ -1,9 +1,13 @@
 package com.mypack.mypack.entities;
 
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Named;
 import jakarta.persistence.*;
 
 import java.util.List;
 
+@Named("manager_bean")
+@RequestScoped
 @Entity
 @Table(name = "managers")
 public class Manager extends Person{
@@ -51,4 +55,6 @@ public class Manager extends Person{
     public void setProducts(List<Manager_Product> products) {
         this.products = products;
     }
+
+
 }

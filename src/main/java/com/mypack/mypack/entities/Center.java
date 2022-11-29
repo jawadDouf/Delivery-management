@@ -1,10 +1,17 @@
 package com.mypack.mypack.entities;
 
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Named;
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
+
+@Named("center_bean")
+@RequestScoped
 @Entity
 @Table(name = "center")
-public class Center {
+public class Center implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
@@ -61,7 +68,11 @@ public class Center {
         return rue;
     }
 
+    public Admin getAdmin() {
+        return admin;
+    }
 
-
-
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
+    }
 }
