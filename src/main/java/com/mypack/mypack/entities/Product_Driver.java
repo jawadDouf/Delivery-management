@@ -1,10 +1,14 @@
 package com.mypack.mypack.entities;
 
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Named;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.Date;
 
+@Named("manager_product_bean")
+@RequestScoped
 @Entity
 @Table(name = "product_driver")
 public class Product_Driver implements Serializable {
@@ -64,4 +68,6 @@ public class Product_Driver implements Serializable {
     public void setEnd_date(Date end_date) {
         this.end_date = end_date;
     }
+
+
 }

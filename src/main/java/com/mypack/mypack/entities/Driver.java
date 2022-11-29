@@ -1,9 +1,13 @@
 package com.mypack.mypack.entities;
 
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Named;
 import jakarta.persistence.*;
 
 import java.util.List;
 
+@Named("driver_bean")
+@RequestScoped
 @Entity
 @Table(name = "drivers")
 public class Driver extends Person{
@@ -12,7 +16,7 @@ public class Driver extends Person{
     private Manager manager;
 
     @OneToMany(mappedBy="driver",fetch = FetchType.EAGER)
-    List<Product_Driver> products;
+    private List<Product_Driver> products;
 
 
     public Manager getManager() {
@@ -30,4 +34,5 @@ public class Driver extends Person{
     public void setProducts(List<Product_Driver> products) {
         this.products = products;
     }
+
 }

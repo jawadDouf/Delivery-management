@@ -1,10 +1,14 @@
 package com.mypack.mypack.entities;
 
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Named;
 import jakarta.persistence.*;
 
 import java.util.Collection;
 import java.util.List;
 
+@Named("admin_bean")
+@RequestScoped
 @Entity
 @Table(name = "admin")
 public class Admin extends Person{
