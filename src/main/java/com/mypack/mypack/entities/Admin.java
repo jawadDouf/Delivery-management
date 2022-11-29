@@ -7,17 +7,19 @@ import java.util.List;
 
 @Entity
 @Table(name = "admin")
-public class Admin {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-    private Long id;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String password;
+public class Admin extends Person{
 
-    //forign key to manager
-    @OneToMany(mappedBy = "admin")
+    @OneToMany(mappedBy = "admin",fetch = FetchType.EAGER)
+    private List<Manager> managers;
 
+    @OneToMany(mappedBy = "admin",fetch = FetchType.EAGER)
+    private List<Center> centers;
+
+    public List<Manager> getManagers() {
+        return managers;
+    }
+
+    public void setManagers(List<Manager> managers) {
+        this.managers = managers;
+    }
 }
