@@ -2,32 +2,53 @@ package com.mypack.mypack.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
-@Table(name = "manager")
-public class Manager {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-    private Long id;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String password;
-    private int adminId;
+@Table(name = "managers")
+public class Manager extends Person{
 
-    @ManyToOne
-    @JoinColumn(name = "adminId", insertable = false, updatable = false)
-    private Admin admin;
+     @ManyToOne
+     private Admin admin;
 
-    @OneToMany
+    @OneToMany(mappedBy = "manager")
+    private List<Center> centers;
+
+    @OneToMany(mappedBy="manager",fetch = FetchType.EAGER)
+    private List<Driver> drivers;
+
+    @OneToMany(mappedBy = "manager",fetch = FetchType.EAGER)
+    private List<Manager_Product> products;
 
     public Admin getAdmin() {
         return admin;
     }
-
     public void setAdmin(Admin admin) {
         this.admin = admin;
     }
 
+    public List<Center> getCenters() {
 
+        return centers;
+    }
+
+    public void setCenters(List<Center> centers) {
+        this.centers = centers;
+    }
+
+    public List<Driver> getDrivers() {
+        return drivers;
+    }
+
+    public void setDrivers(List<Driver> drivers) {
+        this.drivers = drivers;
+    }
+
+    public List<Manager_Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Manager_Product> products) {
+        this.products = products;
+    }
 }

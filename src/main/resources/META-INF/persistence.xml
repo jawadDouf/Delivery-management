@@ -5,5 +5,26 @@
              version="3.0">
     <persistence-unit name="default">
 
+
+            <class>com.mypack.mypack.entities.Driver</class>
+            <class>com.mypack.mypack.entities.Product</class>
+            <class>com.mypack.mypack.entities.Manager</class>
+            <class>com.mypack.mypack.entities.Client</class>
+            <class>com.mypack.mypack.entities.Admin</class>
+            <class>com.mypack.mypack.entities.Manager_Product</class>
+            <class>com.mypack.mypack.entities.Product_Driver</class>
+            <class>com.mypack.mypack.entities.Center</class>
+            <class>com.mypack.mypack.entities.Vehicle</class>
+
+            <properties>
+                <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/mypack_database"/>
+                <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="hibernate.connection.username" value="root"/>
+                <property name="hibernate.connection.password" value="password"/>
+                <property name="hibernate.show_sql" value="true"/>
+                <property name="hibernate.hbm2ddl.auto" value="update"/>
+            </properties>
+
+
     </persistence-unit>
 </persistence>
