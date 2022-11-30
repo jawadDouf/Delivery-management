@@ -1,10 +1,10 @@
 package com.mypack.mypack.dao;
 
 import com.mypack.mypack.utilityClassees.entityUtility;
-import com.sun.tools.javac.util.List;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 
+import java.util.List;
 import java.util.Map;
 
 public class daoImplementation<T> implements dao<T>{
@@ -80,6 +80,23 @@ public class daoImplementation<T> implements dao<T>{
         return null;
     }
 
+    @Override
+    public List<T> query(Class<T> tClass, String jpql, Map<String, Object> params) {
+        EntityManager entityManager = entityUtility.getEntityManagerFactory().createEntityManager();
+        try{
+            entityManager.getTransaction().begin();
+            TypedQuery<T> query = entityManager.createQuery(jpql,tClass);
+            params.forEach((key, value)->{
+                query.setParameter(key,value);
+            });
+            List<T> list = query.getResultList();
+            entityManager.getTransaction().commit();
+            return list;
 
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
 
 }
