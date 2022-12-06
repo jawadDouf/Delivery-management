@@ -1,7 +1,7 @@
 package com.mypack.mypack.dao;
 
-import com.sun.tools.javac.util.List;
 
+import java.util.List;
 import java.util.Map;
 
 public interface dao<T> {
@@ -12,4 +12,5 @@ public interface dao<T> {
 
     public List<T> getAll(Class<T> tClass);
 
+    public List<T> query(Class<T> tClass, String hsql, Map<String,Object> params);
 }
